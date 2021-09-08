@@ -72,6 +72,7 @@ public class ArrowController : MonoBehaviour
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                     Debug.Log("Vous avez gagné");
 
+<<<<<<< Updated upstream
                 }
                 else
                 {
@@ -80,4 +81,19 @@ public class ArrowController : MonoBehaviour
             }
         }
     }
+=======
+  /*  void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            if (state == fatherState)         si la fleche est sur le bon père
+            {
+               Debug.Log("Vous avez gagné");
+            }
+            else
+            {
+                Debug.Log("Vous avez perdu");
+            }
+    }*/
+>>>>>>> Stashed changes
 }
