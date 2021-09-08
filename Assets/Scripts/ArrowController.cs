@@ -71,7 +71,6 @@ public class ArrowController : MonoBehaviour
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                     Debug.Log("Vous avez gagné");
-
                 }
                 else
                 {
