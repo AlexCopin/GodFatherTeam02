@@ -9,7 +9,7 @@ public class DadsScript : MonoBehaviour
     public static DadsScript dadsManager;
     public Transform[] dadsBunnies;
     public List<Dad> dads;
-	[SerializeField] List<Button> Buttons;
+	public List<Button> Buttons;
 
 	private void Awake()
     {
@@ -32,68 +32,28 @@ public class DadsScript : MonoBehaviour
             }
             d.index = rand;
             d.ChangePos(dadsBunnies[d.index]);
-
 		}
 		List<Dad> SortedList = dads.OrderBy(o => o.index).ToList();
         dads = SortedList;
-		foreach(Dad d in dads)
-        {
-			Buttons.Add(d.gameObject.GetComponent<Button>());
-		}
-		InitButtons();
-
-	}
-
-
-	void InitButtons()
-	{
-		Button btn = Buttons[0].GetComponent<Button>();
-		btn.onClick.AddListener(TaskOnClickForFirstButton);
-
-		Button btn2 = Buttons[1].GetComponent<Button>();
-		btn2.onClick.AddListener(TaskOnClickForSecondButton);
-
-		Button btn3 = Buttons[2].GetComponent<Button>();
-		btn3.onClick.AddListener(TaskOnClickForThirdButton);
-
-	}
-
-	void TaskOnClickForFirstButton()
-	{
-		if (DadsScript.dadsManager.dads[0].realDad)
+		for(int i = 0; i <= dads.Count - 1; i++)
 		{
-			Debug.Log(DadsScript.dadsManager.dads[0].name + "Win!");
+			Buttons.Add(dads[i].gameObject.GetComponent<Button>());
+			int x = i;
+			Buttons[i].onClick.AddListener(() => { DadOnClick(x); });
+		}
+	}
+
+
+	void DadOnClick(int index)
+	{
+		if (DadsScript.dadsManager.dads[index].realDad)
+		{
+			Debug.Log(DadsScript.dadsManager.dads[index].name + "Win!");
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 		else
 		{
-			Debug.Log(DadsScript.dadsManager.dads[0].name + "Lose!");
-		}
-	}
-
-	void TaskOnClickForSecondButton()
-	{
-		if (DadsScript.dadsManager.dads[1].realDad)
-		{
-			Debug.Log(DadsScript.dadsManager.dads[1].name + "Win!");
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-		}
-		else
-		{
-			Debug.Log(DadsScript.dadsManager.dads[1].name + "Lose!");
-		}
-	}
-
-	void TaskOnClickForThirdButton()
-	{
-		if (DadsScript.dadsManager.dads[2].realDad)
-		{
-			Debug.Log(DadsScript.dadsManager.dads[2].name + "Win!");
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-		}
-		else
-		{
-			Debug.Log(DadsScript.dadsManager.dads[2].name + "Lose!");
+			Debug.Log(DadsScript.dadsManager.dads[index].name + "Lose!");
 		}
 	}
 }

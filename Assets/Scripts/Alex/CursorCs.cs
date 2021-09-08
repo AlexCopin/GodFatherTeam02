@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CursorCs : MonoBehaviour
 {
-    float speed = 5f;
+    public float speed;
+    Vector3 cursPos;
     public GameObject curs;
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,8 @@ public class CursorCs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 cursPos = Input.mousePosition;
-        Vector3 cursWPos = Camera.main.ScreenToWorldPoint(cursPos);
-        curs.transform.position = new Vector3(cursWPos.x, cursWPos.y , curs.transform.position.z);
+        cursPos = Input.mousePosition;
+        cursPos = Camera.main.ScreenToWorldPoint(cursPos);
+        curs.transform.position = Vector3.Lerp(curs.transform.position, new Vector3(cursPos.x, cursPos.y, curs.transform.position.z) , speed);
     }
 }
