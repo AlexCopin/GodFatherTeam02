@@ -6,6 +6,7 @@ public class DadsScript : MonoBehaviour
 {
     public static DadsScript dadsManager;
     public Transform[] dadsBunnies;
+    public Transform middleBunny;
     public List<Dad> dads;
 
     private void Awake()
