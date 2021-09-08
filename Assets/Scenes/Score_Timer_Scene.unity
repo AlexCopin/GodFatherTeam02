@@ -413,10 +413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db0e120d4f184941956bbd80a224238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTarget: 300
+  timeTarget: 60
   timerText: {fileID: 1176348846}
   isWorking: 0
-  rebootTimer: 0
+  endLevel: 0
 --- !u!1 &1474942415
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scoretext: {fileID: 323080182}
   score: 0
+  myTimer: {fileID: 0}
 --- !u!1 &1894609806
 GameObject:
   m_ObjectHideFlags: 0
