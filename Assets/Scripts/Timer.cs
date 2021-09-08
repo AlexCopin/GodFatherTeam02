@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Timer : MonoBehaviour
     public Text timerText;
     public bool isWorking = false;
     public bool endLevel = false;
+    public float deducedTime = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +33,11 @@ public class Timer : MonoBehaviour
 
             if(time<=0)
             {
+                time = 0;
+                timerText.GetComponent<Text>().text = "0:00";
                 endLevel = true;
                 isWorking = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
 
         }
@@ -79,9 +84,9 @@ public class Timer : MonoBehaviour
     }
 
     //Retire du temps
-    public void MinusTimer(float t)
+    public void MinusTimer()
     {
-        time -= t;
+        time -= deducedTime;
         if(time < 0)
         {
             time = 0;
