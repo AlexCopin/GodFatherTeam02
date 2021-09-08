@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dad : MonoBehaviour
 {
     
-    public bool real;
+    public bool realDad;
     public Color color;
     public int index;
     public Sprite body;

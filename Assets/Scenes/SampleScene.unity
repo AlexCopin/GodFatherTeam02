@@ -279,6 +279,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 198548074, guid: d957cde764a168b458ceb61b5541db36, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 703515744893822861, guid: d957cde764a168b458ceb61b5541db36, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -326,22 +330,6 @@ PrefabInstance:
     - target: {fileID: 703515744893822862, guid: d957cde764a168b458ceb61b5541db36, type: 3}
       propertyPath: m_Name
       value: DadManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 703515745340904691, guid: d957cde764a168b458ceb61b5541db36, type: 3}
-      propertyPath: body
-      value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 703515745340904691, guid: d957cde764a168b458ceb61b5541db36, type: 3}
-      propertyPath: color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 703515745340904691, guid: d957cde764a168b458ceb61b5541db36, type: 3}
-      propertyPath: color.g
-      value: 0.9267906
-      objectReference: {fileID: 0}
-    - target: {fileID: 703515745340904691, guid: d957cde764a168b458ceb61b5541db36, type: 3}
-      propertyPath: color.r
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d957cde764a168b458ceb61b5541db36, type: 3}
