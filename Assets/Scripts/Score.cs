@@ -6,8 +6,13 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public Text Scoretext;
+    public GameObject winPoint;
     public int score = 0;
     public Timer myTimer;
+
+    private int ptsAjout = -1;
+    private string textPoint = "";
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,23 +25,34 @@ public class Score : MonoBehaviour
     {
         Scoretext.GetComponent<Text>().text = score.ToString();
 
-        if(myTimer.endLevel)
+        if(myTimer.endLevel && ptsAjout == -1)
         {
-            if(myTimer.TImeLeft() > 40)
+            if (myTimer.TImeLeft() > 40)
             {
-                AddScore(100);
+                ptsAjout = 100;
             }
             else if(myTimer.TImeLeft() > 20)
             {
-                AddScore(50);
+                ptsAjout = 50;
             }
             else if(myTimer.TImeLeft() >= 1)
             {
-                AddScore(25);
+                ptsAjout = 25;
             }
+            textPoint = "+ " + ptsAjout.ToString();
+            winPoint.GetComponentInChildren<Text>().text = textPoint;
+            winPoint.SetActive(true);
 
-            Debug.Log("My score " + score);
-            myTimer.endLevel = false;
+
+            if(ptsAjout != -1)
+            {
+                score += ptsAjout;
+            }
+        }
+        else if(!myTimer.endLevel)
+        {
+            winPoint.SetActive(false);
+            ptsAjout = -1;
         }
     }
 

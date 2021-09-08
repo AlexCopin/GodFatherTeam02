@@ -8,11 +8,14 @@ public class Timer : MonoBehaviour
 {
 
     public float timeTarget = 60f;
+    public float timeBeforeNextLevel = 2f;
     private float time = 0;
     public Text timerText;
     public bool isWorking = false;
     public bool endLevel = false;
     public float deducedTime = 5;
+
+    private float t = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +40,33 @@ public class Timer : MonoBehaviour
                 timerText.GetComponent<Text>().text = "0:00";
                 endLevel = true;
                 isWorking = false;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                if (t < timeBeforeNextLevel)
+                {
+                    t += Time.deltaTime;
+                }
+                else
+                {
+                    t = 0;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
 
         }
+        else
+        {
+            if(t< timeBeforeNextLevel)
+            {
+                t += Time.deltaTime;
+            }
+            else
+            {
+                t = 0;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+           
+        }
         
+
     }
 
     //Reboot le timer
