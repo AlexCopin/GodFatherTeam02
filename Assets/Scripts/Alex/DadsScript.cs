@@ -11,7 +11,6 @@ public class DadsScript : MonoBehaviour
     public List<Dad> dads;
 	public List<Button> Buttons;
 	public Timer timer;
-	[SerializeField] List<Button> Buttons;
 
 	private void Awake()
     {
@@ -24,6 +23,14 @@ public class DadsScript : MonoBehaviour
     }
     void Start()
     {
+        InitDads();
+        InitButtons();
+        timer.RebootTimer();
+        timer.ActiveTimer();
+    }
+
+	void InitDads()
+    {
         int rand;
         foreach (Dad d in dads)
         {
@@ -34,30 +41,25 @@ public class DadsScript : MonoBehaviour
             }
             d.index = rand;
             d.ChangePos(dadsBunnies[d.index]);
-		}
-		List<Dad> SortedList = dads.OrderBy(o => o.index).ToList();
+        }
+        List<Dad> SortedList = dads.OrderBy(o => o.index).ToList();
         dads = SortedList;
-		for(int i = 0; i <= dads.Count - 1; i++)
-		timer.RebootTimer();
-		timer.ActiveTimer();
-		{
-			Buttons.Add(dads[i].gameObject.GetComponent<Button>());
-			int x = i;
-			Buttons[i].onClick.AddListener(() => { DadOnClick(x); });
-			timer.EndLevel();
-		}
-			timer.MinusTimer();
-	}
-
-			timer.EndLevel();
-			timer.MinusTimer();
+    }
+    void InitButtons()
+    {
+        for (int i = 0; i <= dads.Count - 1; i++)
+        {
+            Buttons.Add(dads[i].gameObject.GetComponent<Button>());
+            int x = i;
+            Buttons[i].onClick.AddListener(() => { DadOnClick(x); });
+        }
+    }
 
 	void DadOnClick(int index)
 	{
 		if (DadsScript.dadsManager.dads[index].realDad)
 		{
 			timer.EndLevel();
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 		else
 		{
