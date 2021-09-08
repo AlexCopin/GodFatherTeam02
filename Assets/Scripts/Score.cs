@@ -35,6 +35,7 @@ public class Score : MonoBehaviour
                 AddScore(25);
             }
 
+            Debug.Log("My score " + score);
             myTimer.endLevel = false;
         }
     }

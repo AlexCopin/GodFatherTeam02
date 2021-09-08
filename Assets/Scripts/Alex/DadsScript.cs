@@ -9,6 +9,7 @@ public class DadsScript : MonoBehaviour
     public static DadsScript dadsManager;
     public Transform[] dadsBunnies;
     public List<Dad> dads;
+	public Timer timer;
 	[SerializeField] List<Button> Buttons;
 
 	private void Awake()
@@ -56,6 +57,8 @@ public class DadsScript : MonoBehaviour
 		Button btn3 = Buttons[2].GetComponent<Button>();
 		btn3.onClick.AddListener(TaskOnClickForThirdButton);
 
+		timer.RebootTimer();
+		timer.ActiveTimer();
 	}
 
 	void TaskOnClickForFirstButton()
@@ -63,10 +66,12 @@ public class DadsScript : MonoBehaviour
 		if (DadsScript.dadsManager.dads[0].realDad)
 		{
 			Debug.Log(DadsScript.dadsManager.dads[0].name + "Win!");
+			timer.EndLevel();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 		else
 		{
+			timer.MinusTimer();
 			Debug.Log(DadsScript.dadsManager.dads[0].name + "Lose!");
 		}
 	}
@@ -76,10 +81,12 @@ public class DadsScript : MonoBehaviour
 		if (DadsScript.dadsManager.dads[1].realDad)
 		{
 			Debug.Log(DadsScript.dadsManager.dads[1].name + "Win!");
+			timer.EndLevel();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 		else
 		{
+			timer.MinusTimer();
 			Debug.Log(DadsScript.dadsManager.dads[1].name + "Lose!");
 		}
 	}
@@ -89,10 +96,12 @@ public class DadsScript : MonoBehaviour
 		if (DadsScript.dadsManager.dads[2].realDad)
 		{
 			Debug.Log(DadsScript.dadsManager.dads[2].name + "Win!");
+			timer.EndLevel();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 		else
 		{
+			timer.MinusTimer();
 			Debug.Log(DadsScript.dadsManager.dads[2].name + "Lose!");
 		}
 	}

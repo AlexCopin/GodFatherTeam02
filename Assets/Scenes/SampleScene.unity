@@ -741,6 +741,7 @@ MonoBehaviour:
   - {fileID: 703515744699268533}
   - {fileID: 703515745885712972}
   - {fileID: 703515744062123156}
+  timer: {fileID: 0}
   Buttons: []
 --- !u!1 &1580215598
 GameObject:
@@ -821,7 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db0e120d4f184941956bbd80a224238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTarget: 300
+  timeTarget: 60
   timerText: {fileID: 846097798}
   isWorking: 0
   endLevel: 0
