@@ -7,4 +7,8 @@ public class MenuPlay : MonoBehaviour
     {
         SceneManager.LoadScene("Level01");
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

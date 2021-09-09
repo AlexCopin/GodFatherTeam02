@@ -92,6 +92,7 @@ public class DadsScript : MonoBehaviour
                 else
                 {
                     Debug.Log("P1 fail");
+                    ScreenShakeController.instance.StartShake(1.0f, 1.0f);
                     fail1 = true;
                 }
             }

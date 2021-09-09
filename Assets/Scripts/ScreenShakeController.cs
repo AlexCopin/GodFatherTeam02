@@ -34,6 +34,10 @@ public class ScreenShakeController : MonoBehaviour
 
             shakeRotation = Mathf.MoveTowards(shakeRotation, 0f, shakeFadeTime * rotationMultiplier * Time.deltaTime);
         }
+        else
+        {
+            transform.position = new Vector3(0, 0, -10);
+        }
 
         transform.rotation = Quaternion.Euler(0f, 0f, shakeRotation * Random.Range(-1f, 1f));
     }
