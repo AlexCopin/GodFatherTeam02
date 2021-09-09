@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     public bool isWorking = false;
     public bool endLevel = false;
     public float deducedTime = 5;
+    public Image goodDadCanvas;
 
     private float t = 0;
 
@@ -56,6 +57,14 @@ public class Timer : MonoBehaviour
         {
             if(t< timeBeforeNextLevel)
             {
+                if(t<1 && goodDadCanvas.canvasRenderer.GetAlpha() != 0)
+                {
+                    goodDadCanvas.CrossFadeAlpha(1 - t, 0, false);
+                }
+                else
+                {
+                    goodDadCanvas.canvasRenderer.SetAlpha(0f);
+                }
                 t += Time.deltaTime;
             }
             else

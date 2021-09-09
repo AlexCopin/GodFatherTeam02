@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 87084794afe07594fbf9f4f2a70d08ff
+=======
+guid: 247adb37622c195418ed7f951ff18758
+>>>>>>> Alex
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

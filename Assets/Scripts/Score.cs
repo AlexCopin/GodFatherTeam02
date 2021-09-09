@@ -32,24 +32,20 @@ public class Score : MonoBehaviour
 
         if (myTimer.endLevel && ptsAjout == -1)
         {
-            if (myTimer.TImeLeft() > 40)
+            if (DadsScript.dadsManager.playerWin == 0)
+            {
+                ptsAjout = 0;
+            }
+            else
             {
                 ptsAjout = 100;
-            }
-            else if (myTimer.TImeLeft() > 20)
-            {
-                ptsAjout = 50;
-            }
-            else if (myTimer.TImeLeft() >= 1)
-            {
-                ptsAjout = 25;
             }
 
             textPoint = "+ " + ptsAjout.ToString();
             winPoint.GetComponentInChildren<Text>().text = textPoint;
             winPoint.SetActive(true);
 
-            Debug.Log("Joueur " + DadsScript.dadsManager.playerWin + " win");
+            //Debug.Log("Joueur " + DadsScript.dadsManager.playerWin + " win");
             switch (DadsScript.dadsManager.playerWin)
             {
                 case 1:
