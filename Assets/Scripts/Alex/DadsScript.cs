@@ -7,12 +7,16 @@ using UnityEngine.SceneManagement;
 public class DadsScript : MonoBehaviour
 {
     public static DadsScript dadsManager;
+    public float marginSides;
+    public float marginTop;
     public Transform[] dadsBunnies;
     public List<Dad> dads;
-	public List<Button> Buttons;
+	//public List<Button> Buttons;
 	public Timer timer;
+    public bool Player01Wins;
+    public bool Player02Wins;
 
-	private void Awake()
+    private void Awake()
     {
         if (dadsManager == null)
         {
@@ -24,28 +28,29 @@ public class DadsScript : MonoBehaviour
     void Start()
     {
         InitDads();
-        InitButtons();
+        //InitButtons();
         timer.RebootTimer();
         timer.ActiveTimer();
     }
 
 	void InitDads()
     {
-        int rand;
+        //int rand;
         foreach (Dad d in dads)
         {
-            rand = Random.Range(0, dadsBunnies.Length);
+            /*rand = Random.Range(0, dadsBunnies.Length);
             while (dads.Find(x => x.index == rand))
             {
                 rand = Random.Range(0, dadsBunnies.Length);
             }
-            d.index = rand;
-            d.ChangePos(dadsBunnies[d.index]);
+            d.index = rand;*/
+            d.ChangePos(dads);
+            //d.ChangePos(dadsBunnies[d.index]);
         }
-        List<Dad> SortedList = dads.OrderBy(o => o.index).ToList();
-        dads = SortedList;
+        /*List<Dad> SortedList = dads.OrderBy(o => o.index).ToList();
+        dads = SortedList;*/
     }
-    void InitButtons()
+    /*void InitButtons()
     {
         for (int i = 0; i <= dads.Count - 1; i++)
         {
@@ -53,7 +58,7 @@ public class DadsScript : MonoBehaviour
             int x = i;
             Buttons[i].onClick.AddListener(() => { DadOnClick(x); });
         }
-    }
+    }*/
 
 	void DadOnClick(int index)
 	{
