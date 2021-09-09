@@ -29,7 +29,6 @@ public class Dad : MonoBehaviour
 
     void Update()
     {
-        direction.z = 0;
         if (!changeDirection && inLevel)
         {
             StartCoroutine(ChangeDirections());
@@ -42,6 +41,7 @@ public class Dad : MonoBehaviour
             direction.x = dirGoingBack.x;
             direction.y = dirGoingBack.y;
         }
+        direction.z = 0;
         transform.position += direction * speed/500;
     }
 
@@ -53,25 +53,17 @@ public class Dad : MonoBehaviour
         direction.y = Random.Range(-1.0f, 1.0f);
         changeDirection = false;
     }
-    public  void ChangePos(List<Dad> dads)
+    public  void ChangePos()
     {
-        for(int i = 0; i < dads.Count; i++)
-        {
-            if (this != dads[i] && Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y), new Vector2(dads[i].transform.position.x, dads[i].transform.position.y)) < 1f)
-            {
-                transform.position = new Vector3(Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).x, Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).y, 0);
-            }
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        }
+        transform.position = new Vector3(Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).x, Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).y, 0);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
     public void InitButtons(GameObject button01,GameObject button02)
     {
         button01.transform.SetParent(transform);
         button02.transform.SetParent(transform);
-        /*button01.transform.localPosition = new Vector3(0, -DadsScript.dadsManager.marginButton, 0);
-        button02.transform.localPosition = new Vector3(0, DadsScript.dadsManager.marginButton, 0);*/
-        button01.transform.localPosition = new Vector3(-DadsScript.dadsManager.marginButton, 0, 0);
-        button02.transform.localPosition = new Vector3(DadsScript.dadsManager.marginButton, 0, 0);
+        button01.transform.localPosition = new Vector3(DadsScript.dadsManager.marginButton, 0, 0);
+        button02.transform.localPosition = new Vector3(-DadsScript.dadsManager.marginButton, 0, 0);
     }
     private void OnTriggerEnter2D(Collider2D c)
     {
@@ -79,14 +71,12 @@ public class Dad : MonoBehaviour
         {
             goingBack = false;
             inLevel = true;
-            Debug.Log("Heho");
         }
     }
     private void OnTriggerExit2D(Collider2D c)
     {
         if (c.gameObject.name == "InteriorLevel")
         {
-            Debug.Log("Heho2");
             inLevel = false;
         }
     }

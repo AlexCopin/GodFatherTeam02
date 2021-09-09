@@ -14,7 +14,6 @@ public class DadsScript : MonoBehaviour
     public float marginTop;
     public List<Dad> dads;
     public float marginButton;
-	//public List<Button> Buttons;
     [Header("Timer Variables")]
 	public Timer timer;
     public int playerWin = 0;
@@ -86,13 +85,15 @@ public class DadsScript : MonoBehaviour
                 if (DadsScript.dadsManager.dads[index1].realDad)
                 {
                     Debug.Log("P1 win");
+                    AudioManager.audioManager.Play("correct");
                     playerWin = 1;
                     timer.EndLevel();
                 }
                 else
                 {
                     Debug.Log("P1 fail");
-                    ScreenShakeController.instance.StartShake(1.0f, 1.0f);
+                    CameraScript.camScript.CamShake(0.5f, 1.0f);
+                    AudioManager.audioManager.Play("wrong");
                     fail1 = true;
                 }
             }
@@ -139,11 +140,14 @@ public class DadsScript : MonoBehaviour
                 {
                     Debug.Log("P2 win");
                     playerWin = 2;
+                    AudioManager.audioManager.Play("correct");
                     timer.EndLevel();
                 }
                 else
                 {
-                    Debug.Log("P2 win");
+                    Debug.Log("P2 fail");
+                    CameraScript.camScript.CamShake(0.5f, 1.0f);
+                    AudioManager.audioManager.Play("wrong");
                     fail2 = true;
                 }
             }
@@ -165,7 +169,7 @@ public class DadsScript : MonoBehaviour
                 rand = Random.Range(0, dads.Count);
             }
             d.index = rand;
-            d.ChangePos(dads);
+            d.ChangePos();
         }
         List<Dad> SortedList = dads.OrderBy(o => o.index).ToList();
         dads = SortedList;
