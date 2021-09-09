@@ -68,8 +68,10 @@ public class Dad : MonoBehaviour
     {
         button01.transform.SetParent(transform);
         button02.transform.SetParent(transform);
-        button01.transform.localPosition = new Vector3(0, -DadsScript.dadsManager.marginButton, 0);
-        button02.transform.localPosition = new Vector3(0, DadsScript.dadsManager.marginButton, 0);
+        /*button01.transform.localPosition = new Vector3(0, -DadsScript.dadsManager.marginButton, 0);
+        button02.transform.localPosition = new Vector3(0, DadsScript.dadsManager.marginButton, 0);*/
+        button01.transform.localPosition = new Vector3(-DadsScript.dadsManager.marginButton, 0, 0);
+        button02.transform.localPosition = new Vector3(DadsScript.dadsManager.marginButton, 0, 0);
     }
     private void OnTriggerEnter2D(Collider2D c)
     {
