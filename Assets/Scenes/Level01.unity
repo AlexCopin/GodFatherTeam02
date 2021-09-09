@@ -2514,6 +2514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6542798139692807057, guid: d6ca8513e49e7dc46bcb44a6be7f5bd9, type: 3}
+      propertyPath: dadManager
+      value: 
+      objectReference: {fileID: 1487524755}
     - target: {fileID: 6542798139865869537, guid: d6ca8513e49e7dc46bcb44a6be7f5bd9, type: 3}
       propertyPath: m_Name
       value: CanvasUI
@@ -2602,6 +2606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6542798139902396761, guid: d6ca8513e49e7dc46bcb44a6be7f5bd9, type: 3}
+      propertyPath: goodDadCanvas
+      value: 
+      objectReference: {fileID: 6542798140461140424}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6ca8513e49e7dc46bcb44a6be7f5bd9, type: 3}
 --- !u!114 &6542798140461140423 stripped
