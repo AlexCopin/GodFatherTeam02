@@ -8,6 +8,9 @@ public class Dad : MonoBehaviour
     
     public bool realDad;
     public float speed;
+    public Vector3 direction;
+    public bool inLevel = true;
+    public bool changeDirection;
     public Color color;
     //public int index;
     public Sprite body;
@@ -19,10 +22,10 @@ public class Dad : MonoBehaviour
         JoystickButton2,
         JoystickButton3
     }
-
+        
     private void Start()
     {
-        speed = Random.Range(1, 5);
+        speed = Random.Range(1, 3);
         marginSide = DadsScript.dadsManager.marginSides * Screen.width;
         marginTopBot = DadsScript.dadsManager.marginTop * Screen.height;
         //GetComponent<SpriteRenderer>().sprite = body;
@@ -30,6 +33,30 @@ public class Dad : MonoBehaviour
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width- marginSide), Random.Range(marginTopBot, Screen.height- marginTopBot),0));
     }
 
+    void Update()
+    {
+        if (!changeDirection)
+        {
+            StartCoroutine(ChangeDirections());
+        }
+        if (!inLevel)
+        {
+            direction.x = Random.Range(-1.0f, 1.0f);
+            direction.y = Random.Range(-1.0f, 1.0f);
+        }
+        /*direction.x = Random.Range(-1.0f, 1.0f);
+        direction.y = Random.Range(-1.0f, 1.0f);*/
+        transform.position += direction * speed/500;
+    }
+
+    IEnumerator ChangeDirections()
+    {
+        changeDirection = true;
+        yield return new WaitForSeconds(1.0f);
+        direction.x = Random.Range(-1.0f, 1.0f);
+        direction.y = Random.Range(-1.0f, 1.0f);
+        changeDirection = false;
+    }
     public  void ChangePos(List<Dad> dads)
     {
         for(int i = 0; i < dads.Count; i++)
@@ -39,6 +66,23 @@ public class Dad : MonoBehaviour
             {
                 transform.position = new Vector3(Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).x, Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).y, 0);
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D c)
+    {
+        if (c.gameObject.name == "InteriorLevel")
+        {
+            inLevel = true;
+            Debug.Log("Heho");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D c)
+    {
+        if (c.gameObject.name == "InteriorLevel")
+        {
+            Debug.Log("Heho2");
+            inLevel = false;
         }
     }
 }
