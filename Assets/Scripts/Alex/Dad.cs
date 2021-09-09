@@ -8,6 +8,7 @@ public class Dad : MonoBehaviour
     
     public bool realDad;
     public float speed;
+    bool goingBack;
     public Vector3 direction;
     public bool inLevel = true;
     public bool changeDirection;
@@ -30,17 +31,16 @@ public class Dad : MonoBehaviour
 
     void Update()
     {
-        if (!changeDirection)
+        if (!changeDirection && inLevel)
         {
             StartCoroutine(ChangeDirections());
         }
-        if (!inLevel)
+        if (!inLevel && !goingBack)
         {
-            direction.x = Random.Range(-1.0f, 1.0f);
-            direction.y = Random.Range(-1.0f, 1.0f);
+            goingBack = true;
+            direction.x = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).x;
+            direction.y = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).y;
         }
-        /*direction.x = Random.Range(-1.0f, 1.0f);
-        direction.y = Random.Range(-1.0f, 1.0f);*/
         transform.position += direction * speed/500;
     }
 
@@ -64,10 +64,11 @@ public class Dad : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D c)
+    private void OnTriggerEnter2D(Collider2D c)
     {
         if (c.gameObject.name == "InteriorLevel")
         {
+            goingBack = false;
             inLevel = true;
             Debug.Log("Heho");
         }
