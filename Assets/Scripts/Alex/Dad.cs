@@ -16,12 +16,7 @@ public class Dad : MonoBehaviour
     public Sprite body;
     float marginSide;
     float marginTopBot;
-    enum InputDad{
-        JoystickButton0,
-        JoystickButton1,
-        JoystickButton2,
-        JoystickButton3
-    }
+
         
     private void Start()
     {
