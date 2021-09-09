@@ -322,7 +322,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   inLevel: 1
   changeDirection: 0
-  realDad: 1
+  realDad: 0
   index: 0
 --- !u!70 &5639595117320286488
 CapsuleCollider2D:
@@ -671,7 +671,7 @@ MonoBehaviour:
   - {fileID: 5639595118845352422}
   - {fileID: 5639595117183221449}
   - {fileID: 5639595118131245386}
-  marginButton: 0.75
+  marginButton: 4
   timer: {fileID: 0}
   playerWin: 0
 --- !u!1 &5639595117856141004
@@ -1361,7 +1361,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   inLevel: 1
   changeDirection: 0
-  realDad: 0
+  realDad: 1
   index: 0
 --- !u!70 &5639595118187747546
 CapsuleCollider2D:
@@ -2291,7 +2291,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   inLevel: 1
   changeDirection: 0
-  realDad: 1
+  realDad: 0
   index: 0
 --- !u!70 &5639595118957511062
 CapsuleCollider2D:

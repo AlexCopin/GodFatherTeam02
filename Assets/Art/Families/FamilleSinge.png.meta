@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: f3aa894057a4fd34b966f26e24e45096
+guid: baace4537a8a29941b61384d427ceaad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 157391666164810864
-    second: FamilleCube_0
+      213: 278388971437091492
+    second: FamilleSinge_0
   - first:
-      213: 3460008670940137611
-    second: FamilleCube_1
+      213: -5205155386106575657
+    second: FamilleSinge_1
+  - first:
+      213: 1935910637384446053
+    second: FamilleSinge_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FamilleCube_0
+      name: FamilleSinge_0
       rect:
         serializedVersion: 2
-        x: 232
-        y: 90
-        width: 406
-        height: 1029
+        x: 500
+        y: 1217
+        width: 11
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +114,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0744c50f2ea2f2200800000000000000
-      internalID: 157391666164810864
+      spriteID: 4aae4e76b490dd300800000000000000
+      internalID: 278388971437091492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FamilleCube_1
+      name: FamilleSinge_1
       rect:
         serializedVersion: 2
-        x: 778
-        y: 0
-        width: 1343
-        height: 1157
+        x: 146
+        y: 93
+        width: 498
+        height: 1001
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +135,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b888827ed8b640030800000000000000
-      internalID: 3460008670940137611
+      spriteID: 7d4086221c293c7b0800000000000000
+      internalID: -5205155386106575657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FamilleSinge_2
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 0
+        width: 1373
+        height: 1257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5603332c77cbdda10800000000000000
+      internalID: 1935910637384446053
       vertices: []
       indices: 
       edges: []

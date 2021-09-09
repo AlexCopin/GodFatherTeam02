@@ -49,8 +49,8 @@ public class Score : MonoBehaviour
             winPoint.GetComponentInChildren<Text>().text = textPoint;
             winPoint.SetActive(true);
 
-            Debug.Log("Joueur " + dadManager.playerWin + " win");
-            switch (dadManager.playerWin)
+            Debug.Log("Joueur " + DadsScript.dadsManager.playerWin + " win");
+            switch (DadsScript.dadsManager.playerWin)
             {
                 case 1:
                     if (ptsAjout != -1)

@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: f3aa894057a4fd34b966f26e24e45096
+guid: ee9dd6b6897f6734a85d773291e458c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 157391666164810864
-    second: FamilleCube_0
+      213: 5632935201919526292
+    second: Famillechien_0
   - first:
-      213: 3460008670940137611
-    second: FamilleCube_1
+      213: 3832696003371667713
+    second: Famillechien_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FamilleCube_0
+      name: Famillechien_0
       rect:
         serializedVersion: 2
-        x: 232
-        y: 90
-        width: 406
-        height: 1029
+        x: 76
+        y: 135
+        width: 573
+        height: 1003
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0744c50f2ea2f2200800000000000000
-      internalID: 157391666164810864
+      spriteID: 495e439b8b43c2e40800000000000000
+      internalID: 5632935201919526292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FamilleCube_1
+      name: Famillechien_1
       rect:
         serializedVersion: 2
-        x: 778
+        x: 718
         y: 0
-        width: 1343
-        height: 1157
+        width: 1403
+        height: 1257
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b888827ed8b640030800000000000000
-      internalID: 3460008670940137611
+      spriteID: 101170565b8703530800000000000000
+      internalID: 3832696003371667713
       vertices: []
       indices: 
       edges: []
