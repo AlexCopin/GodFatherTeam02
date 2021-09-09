@@ -13,8 +13,7 @@ public class DadsScript : MonoBehaviour
     public List<Dad> dads;
 	//public List<Button> Buttons;
 	public Timer timer;
-    public bool Player01Wins;
-    public bool Player02Wins;
+    public int PlayerWin = 0;
 
     private void Awake()
     {

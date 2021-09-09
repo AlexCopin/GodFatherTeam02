@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public Text Scoretext;
+    public Text Scoretext1;
+    public Text Scoretext2;
     public GameObject winPoint;
-    public int score = 0;
+    public int score1 = 0;
+    public int score2 = 0;
     public Timer myTimer;
+    public DadsScript dadManager;
 
     private int ptsAjout = -1;
     private string textPoint = "";
@@ -17,37 +20,54 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Scoretext.GetComponent<Text>().text = score.ToString();
+        Scoretext1.GetComponent<Text>().text = score1.ToString();
+        Scoretext2.GetComponent<Text>().text = score2.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Scoretext.GetComponent<Text>().text = score.ToString();
+        Scoretext1.GetComponent<Text>().text = score1.ToString();
+        Scoretext2.GetComponent<Text>().text = score2.ToString();
 
-        if(myTimer.endLevel && ptsAjout == -1)
+        if (myTimer.endLevel && ptsAjout == -1)
         {
             if (myTimer.TImeLeft() > 40)
             {
                 ptsAjout = 100;
             }
-            else if(myTimer.TImeLeft() > 20)
+            else if (myTimer.TImeLeft() > 20)
             {
                 ptsAjout = 50;
             }
-            else if(myTimer.TImeLeft() >= 1)
+            else if (myTimer.TImeLeft() >= 1)
             {
                 ptsAjout = 25;
             }
+
             textPoint = "+ " + ptsAjout.ToString();
             winPoint.GetComponentInChildren<Text>().text = textPoint;
             winPoint.SetActive(true);
 
 
-            if(ptsAjout != -1)
+            switch (dadManager.PlayerWin)
             {
-                score += ptsAjout;
+                case 1:
+                    if (ptsAjout != -1)
+                    {
+                        score1 += ptsAjout;
+                    };
+                    break;
+
+                case 2:
+
+                    if (ptsAjout != -1)
+                    {
+                        score2 += ptsAjout;
+                    };
+                    break;
             }
+
         }
         else if(!myTimer.endLevel)
         {
@@ -59,15 +79,16 @@ public class Score : MonoBehaviour
 
     public void RebootScore()
     {
-        score = 0;
+        score1 = 0;
+        score2 = 0;
     }
 
-    public void AddScore(int nb)
+    public void AddScore(int nb, int score)
     {
         score += nb;
     }
 
-    public void MinusScore(int nb)
+    public void MinusScore(int nb, int score)
     {
         score -= nb;
     }
