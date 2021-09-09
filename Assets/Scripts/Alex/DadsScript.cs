@@ -23,6 +23,10 @@ public class DadsScript : MonoBehaviour
     private int index1 = -1;
     private int index2 = -1;
 
+    [Header("Game Feel")]
+    public Image goodDadCanvas;
+    public Image badDadCanvas;
+
     private void Awake()
     {
         if (dadsManager == null)
@@ -87,13 +91,16 @@ public class DadsScript : MonoBehaviour
                 {
                     Debug.Log("P1 win");
                     playerWin = 1;
+                    goodDadCanvas.canvasRenderer.SetAlpha(1f);
                     timer.EndLevel();
                 }
                 else
                 {
                     Debug.Log("P1 fail");
-                    ScreenShakeController.instance.StartShake(1.0f, 1.0f);
+                    //ScreenShakeController.instance.StartShake(1.0f, 1.0f);
                     fail1 = true;
+                    badDadCanvas.canvasRenderer.SetAlpha(1f);
+                    BadDadFadeOut();
                 }
             }
         }
@@ -139,12 +146,15 @@ public class DadsScript : MonoBehaviour
                 {
                     Debug.Log("P2 win");
                     playerWin = 2;
+                    goodDadCanvas.canvasRenderer.SetAlpha(1f);
                     timer.EndLevel();
                 }
                 else
                 {
-                    Debug.Log("P2 win");
+                    Debug.Log("P2 fail");
                     fail2 = true;
+                    badDadCanvas.canvasRenderer.SetAlpha(1f);
+                    BadDadFadeOut();
                 }
             }
         }
@@ -173,5 +183,12 @@ public class DadsScript : MonoBehaviour
         {
             dads[i].InitButtons(buttons01[i], buttons02[i]);
         }
+        goodDadCanvas.canvasRenderer.SetAlpha(0f);
+        badDadCanvas.canvasRenderer.SetAlpha(0f);
+    }
+
+    void BadDadFadeOut()
+    {
+        badDadCanvas.CrossFadeAlpha(0, 1, false);
     }
 }
