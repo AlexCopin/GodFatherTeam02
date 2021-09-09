@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementChild : MonoBehaviour
 {
-    public AnimationCurve animCurve;
+    /*public AnimationCurve animCurve;
     public float movementDuration;
     public bool canMove;
     // Start is called before the first frame update
@@ -35,5 +35,5 @@ public class MovementChild : MonoBehaviour
         }
         yield return new WaitForSeconds(movementDuration);
         canMove = true;
-    }
+    }*/
 }

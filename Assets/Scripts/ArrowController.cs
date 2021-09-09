@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class ArrowController : MonoBehaviour
 {
-    public int state = 1;
+    /*public int state = 1;
     public MovementChild child;
     [SerializeField] GameObject[] Arrows;
     // Start is called before the first frame update
@@ -78,5 +78,5 @@ public class ArrowController : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 }

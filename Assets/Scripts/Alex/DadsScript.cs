@@ -6,15 +6,18 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 public class DadsScript : MonoBehaviour
 {
+    [Header("Dad variables")]
+    public GameObject[] buttons01;
+    public GameObject[] buttons02;
     public static DadsScript dadsManager;
     public float marginSides;
     public float marginTop;
-    public Transform[] dadsBunnies;
     public List<Dad> dads;
+    public float marginButton;
 	//public List<Button> Buttons;
+    [Header("Timer Variables")]
 	public Timer timer;
     public int playerWin = 0;
-
     private bool fail1 = false;
     private bool fail2 = false;
     private int index1 = -1;
@@ -148,45 +151,26 @@ public class DadsScript : MonoBehaviour
 
     void InitDads()
     {
-        //int rand;
+        int rand;
         playerWin = 0;
         index1 = -1;
         index2 = -1;
         foreach (Dad d in dads)
         {
-            /*rand = Random.Range(0, dadsBunnies.Length);
+            d.index = -5;
+            rand = Random.Range(0, dads.Count);
             while (dads.Find(x => x.index == rand))
             {
-                rand = Random.Range(0, dadsBunnies.Length);
+                rand = Random.Range(0, dads.Count);
             }
-            d.index = rand;*/
+            d.index = rand;
             d.ChangePos(dads);
-            //d.ChangePos(dadsBunnies[d.index]);
         }
-        /*List<Dad> SortedList = dads.OrderBy(o => o.index).ToList();
-        dads = SortedList;*/
-    }
-    /*void InitButtons()
-    {
-        for (int i = 0; i <= dads.Count - 1; i++)
+        List<Dad> SortedList = dads.OrderBy(o => o.index).ToList();
+        dads = SortedList;
+        for(int i = 0; i < dads.Count; i++)
         {
-            Buttons.Add(dads[i].gameObject.GetComponent<Button>());
-            int x = i;
-            Buttons[i].onClick.AddListener(() => { DadOnClick(x); });
+            dads[i].InitButtons(buttons01[i], buttons02[i]);
         }
-    }*/
-
-	void DadOnClick(int index)
-	{
-		if (DadsScript.dadsManager.dads[index].realDad)
-		{
-			timer.EndLevel();
-		}
-		else
-		{
-			timer.MinusTimer();
-		}
-	}
-
-
+    }
 }
