@@ -14,6 +14,7 @@ public class DadsScript : MonoBehaviour
     public float marginTop;
     public List<Dad> dads;
     public float marginButton;
+
     [Header("Timer Variables")]
 	public Timer timer;
     public int playerWin = 0;
@@ -27,6 +28,7 @@ public class DadsScript : MonoBehaviour
 
     [Header("Game Feel")]
     public Image goodDadCanvas;
+    public Text winnerText;
     public Image badDadCanvas;
 
     private void Awake()
@@ -48,6 +50,7 @@ public class DadsScript : MonoBehaviour
         //InitButtons();
         timer.RebootTimer();
         timer.ActiveTimer();
+        winnerText.enabled = false;
     }
 
     void Update()
@@ -101,6 +104,8 @@ public class DadsScript : MonoBehaviour
                     AudioManager.audioManager.Play("correct");
                     playerWin = 1;
                     goodDadCanvas.canvasRenderer.SetAlpha(1f);
+                    winnerText.text = "Player 1 found his daddy !!";
+                    winnerText.enabled = true;
                     timer.EndLevel();
                 }
                 else
@@ -171,6 +176,8 @@ public class DadsScript : MonoBehaviour
                     playerWin = 2;
                     AudioManager.audioManager.Play("correct");
                     goodDadCanvas.canvasRenderer.SetAlpha(1f);
+                    winnerText.text = "Player 2 found his daddy !!";
+                    winnerText.enabled = true;
                     timer.EndLevel();
                 }
                 else
