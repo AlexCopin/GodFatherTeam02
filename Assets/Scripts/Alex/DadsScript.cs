@@ -228,6 +228,6 @@ public class DadsScript : MonoBehaviour
 
     void BadDadFadeOut()
     {
-        badDadCanvas.CrossFadeAlpha(0, 1, false);
+        badDadCanvas.CrossFadeAlpha(0, timeFail, false);
     }
 }
