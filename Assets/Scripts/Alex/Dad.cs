@@ -8,6 +8,7 @@ public class Dad : MonoBehaviour
     [Header("Movement")]
     public Vector2 speedRange;
     public float speed;
+    float zPos;
     bool goingBack;
     public Vector3 direction;
     public bool inLevel = true;
@@ -21,6 +22,7 @@ public class Dad : MonoBehaviour
         
     private void Start()
     {
+        zPos = transform.position.z;
         speed = Random.Range(speedRange.x, speedRange.y);
         marginSide = DadsScript.dadsManager.marginSides * Screen.width;
         marginTopBot = DadsScript.dadsManager.marginTop * Screen.height;
@@ -40,9 +42,10 @@ public class Dad : MonoBehaviour
             dirGoingBack = dirGoingBack.normalized;
             direction.x = dirGoingBack.x;
             direction.y = dirGoingBack.y;
+            direction.z = zPos;
         }
-        direction.z = 0;
-        transform.position += direction * speed/500;
+        direction.z = zPos;
+        transform.position = new Vector3(transform.position.x + direction.x * speed / 500, transform.position.y + direction.y * speed / 500, 0);
     }
 
     IEnumerator ChangeDirections()
@@ -55,15 +58,15 @@ public class Dad : MonoBehaviour
     }
     public  void ChangePos()
     {
-        transform.position = new Vector3(Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).x, Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).y, 0);
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        transform.position = new Vector3(Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).x, Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(marginSide, Screen.width - marginSide), Random.Range(marginTopBot, Screen.height - marginTopBot), 0)).y, zPos);
+        transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
     }
     public void InitButtons(GameObject button01,GameObject button02)
     {
         button01.transform.SetParent(transform);
         button02.transform.SetParent(transform);
-        button01.transform.localPosition = new Vector3(DadsScript.dadsManager.marginButton, 0, 0);
-        button02.transform.localPosition = new Vector3(-DadsScript.dadsManager.marginButton, 0, 0);
+        button01.transform.localPosition = new Vector3(DadsScript.dadsManager.marginButton, 0, zPos);
+        button02.transform.localPosition = new Vector3(-DadsScript.dadsManager.marginButton, 0, zPos);
     }
     private void OnTriggerEnter2D(Collider2D c)
     {
