@@ -37,6 +37,10 @@ public class DadsScript : MonoBehaviour
     }
     void Start()
     {
+
+        goodDadCanvas = GameObject.Find("Good_Dad").GetComponent<Image>();
+        badDadCanvas = GameObject.Find("Bad_Dad").GetComponent<Image>();
+        timer = GameObject.Find("Timer_Canvas").GetComponent<Timer>();
         InitDads();
         //InitButtons();
         timer.RebootTimer();

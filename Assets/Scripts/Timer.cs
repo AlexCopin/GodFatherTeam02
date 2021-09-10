@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        goodDadCanvas = GameObject.Find("Good_Dad").GetComponent<Image>();
         time = timeTarget;
         timerText.GetComponent<Text>().text = string.Format("{0:0}:{1:00}", Mathf.Floor(time / 60), time % 60);
     }
