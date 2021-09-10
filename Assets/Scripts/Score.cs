@@ -8,8 +8,8 @@ public class Score : MonoBehaviour
     public Text Scoretext1;
     public Text Scoretext2;
     public GameObject winPoint;
-    public int score1 = 0;
-    public int score2 = 0;
+    public int score1;
+    public int score2;
     public Timer myTimer;
     public DadsScript dadManager;
 
@@ -20,15 +20,15 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Scoretext1.GetComponent<Text>().text = score1.ToString();
-        Scoretext2.GetComponent<Text>().text = score2.ToString();
+        Scoretext1.GetComponent<Text>().text = PlayerPrefs.GetInt("score1").ToString();
+        Scoretext2.GetComponent<Text>().text = PlayerPrefs.GetInt("score2").ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Scoretext1.GetComponent<Text>().text = score1.ToString();
-        Scoretext2.GetComponent<Text>().text = score2.ToString();
+        Scoretext1.GetComponent<Text>().text = PlayerPrefs.GetInt("score1").ToString();
+        Scoretext2.GetComponent<Text>().text = PlayerPrefs.GetInt("score2").ToString();
 
         if (myTimer.endLevel && ptsAjout == -1)
         {
@@ -51,7 +51,9 @@ public class Score : MonoBehaviour
                 case 1:
                     if (ptsAjout != -1)
                     {
-                        score1 += ptsAjout;
+                        score1 += PlayerPrefs.GetInt("score1") + ptsAjout;
+                        PlayerPrefs.SetInt("score1", score1);
+                        Debug.Log(PlayerPrefs.GetInt("score1"));
                     };
                     break;
 
@@ -59,7 +61,8 @@ public class Score : MonoBehaviour
 
                     if (ptsAjout != -1)
                     {
-                        score2 += ptsAjout;
+                        score2 += PlayerPrefs.GetInt("score2") + ptsAjout;
+                        PlayerPrefs.SetInt("score2", score2);
                     };
                     break;
 
