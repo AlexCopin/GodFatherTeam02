@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
 
     public float timeTarget = 60f;
     public float timeBeforeNextLevel = 2f;
-    private float time = 0;
+    //private float time = 0;
     public Text timerText;
     public bool isWorking = false;
     public bool endLevel = false;
@@ -22,8 +22,9 @@ public class Timer : MonoBehaviour
     void Start()
     {
         goodDadCanvas = GameObject.Find("Good_Dad").GetComponent<Image>();
-        time = timeTarget;
-        timerText.GetComponent<Text>().text = string.Format("{0:0}:{1:00}", Mathf.Floor(time / 60), time % 60);
+        //time = timeTarget;
+        timerText.enabled = false;
+        //timerText.GetComponent<Text>().text = string.Format("{0:0}:{1:00}", Mathf.Floor(time / 60), time % 60);
     }
 
     // Update is called once per frame
@@ -32,10 +33,11 @@ public class Timer : MonoBehaviour
 
         if (isWorking)
         {
-            time -= Time.deltaTime;
+            //time -= Time.deltaTime;
             
-            timerText.GetComponent<Text>().text = string.Format("{0:0}:{1:00}", Mathf.Floor(time / 60), time % 60);
+            //timerText.GetComponent<Text>().text = string.Format("{0:0}:{1:00}", Mathf.Floor(time / 60), time % 60);
 
+            /*
             if(time<=0)
             {
                 time = 0;
@@ -51,7 +53,7 @@ public class Timer : MonoBehaviour
                     t = 0;
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
-            }
+            }*/
 
         }
         else
@@ -82,7 +84,7 @@ public class Timer : MonoBehaviour
     //Reboot le timer
     public void RebootTimer()
     {
-        time = timeTarget;
+        //time = timeTarget;
         endLevel = false;
     }
 
@@ -105,12 +107,12 @@ public class Timer : MonoBehaviour
         PauseTimer();
         endLevel = true;
     }
-
+    /*
     //Renvoie le temps restant
     public float TImeLeft()
     {
         return time;
-    }
+    }*/
 
     //Renvoie si le timer est actif
     public bool TimerIsWorking()
@@ -118,6 +120,7 @@ public class Timer : MonoBehaviour
         return isWorking;
     }
 
+    /*
     //Retire du temps
     public void MinusTimer()
     {
@@ -126,5 +129,5 @@ public class Timer : MonoBehaviour
         {
             time = 0;
         }
-    }
+    }*/
 }
