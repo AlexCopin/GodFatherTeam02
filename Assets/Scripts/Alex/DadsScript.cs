@@ -28,6 +28,7 @@ public class DadsScript : MonoBehaviour
 
     [Header("Game Feel")]
     public Image goodDadCanvas;
+    public GameObject winnerOk;
     public Text winnerText;
     public Image badDadCanvas;
 
@@ -50,6 +51,10 @@ public class DadsScript : MonoBehaviour
         //InitButtons();
         timer.RebootTimer();
         timer.ActiveTimer();
+
+        winnerText = GameObject.Find("WinnerText").GetComponent<Text>();
+        winnerOk = GameObject.Find("WinnerOk");
+        winnerOk.SetActive(false);
         winnerText.enabled = false;
     }
 
@@ -104,7 +109,9 @@ public class DadsScript : MonoBehaviour
                     AudioManager.audioManager.Play("correct");
                     playerWin = 1;
                     goodDadCanvas.canvasRenderer.SetAlpha(1f);
+                    CameraScript.camScript.CamShake(0.5f, 0.7f);
                     winnerText.text = "Player 1 found his daddy !!";
+                    winnerOk.SetActive(true);
                     winnerText.enabled = true;
                     timer.EndLevel();
                 }
@@ -175,7 +182,9 @@ public class DadsScript : MonoBehaviour
                     Debug.Log("P2 win");
                     playerWin = 2;
                     AudioManager.audioManager.Play("correct");
+                    CameraScript.camScript.CamShake(0.5f, 0.7f);
                     goodDadCanvas.canvasRenderer.SetAlpha(1f);
+                    winnerOk.SetActive(true);
                     winnerText.text = "Player 2 found his daddy !!";
                     winnerText.enabled = true;
                     timer.EndLevel();

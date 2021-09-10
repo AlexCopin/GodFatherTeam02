@@ -130,6 +130,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1094634711554316970}
     m_Modifications:
+    - target: {fileID: 691959619, guid: 8f5684c0800034a4b98a28c934d59caa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 232.2119
+      objectReference: {fileID: 0}
+    - target: {fileID: 691959619, guid: 8f5684c0800034a4b98a28c934d59caa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 232.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 691959619, guid: 8f5684c0800034a4b98a28c934d59caa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 691959619, guid: 8f5684c0800034a4b98a28c934d59caa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 116.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6542798139865869537, guid: 8f5684c0800034a4b98a28c934d59caa, type: 3}
       propertyPath: m_Name
       value: CanvasUI
@@ -2809,7 +2825,10 @@ MonoBehaviour:
   marginButton: 4
   timer: {fileID: 0}
   playerWin: 0
+  timeFail: 2
   goodDadCanvas: {fileID: 0}
+  winnerOk: {fileID: 0}
+  winnerText: {fileID: 0}
   badDadCanvas: {fileID: 0}
 --- !u!1 &1094634711659407642
 GameObject:
