@@ -17,10 +17,13 @@ public class DadsScript : MonoBehaviour
     [Header("Timer Variables")]
 	public Timer timer;
     public int playerWin = 0;
+    public float timeFail = 2f;
     private bool fail1 = false;
     private bool fail2 = false;
     private int index1 = -1;
     private int index2 = -1;
+    private float t1 = 0;
+    private float t2 = 0;
 
     [Header("Game Feel")]
     public Image goodDadCanvas;
@@ -49,10 +52,12 @@ public class DadsScript : MonoBehaviour
 
     void Update()
     {
-        if(fail1 && fail2)
+       /* if(fail1 && fail2)
         {
             timer.EndLevel();
         }
+       */
+
 
         //Player 1
         if (!fail1)
@@ -107,6 +112,19 @@ public class DadsScript : MonoBehaviour
                     badDadCanvas.canvasRenderer.SetAlpha(1f);
                     BadDadFadeOut();
                 }
+            }
+        }
+        else
+        {
+            if(t1 < timeFail)
+            {
+                t1 += Time.deltaTime;
+            }
+            else
+            {
+                fail1 = false;
+                t1 = 0;
+                index1 = -1;
             }
         }
 
@@ -164,6 +182,19 @@ public class DadsScript : MonoBehaviour
                     badDadCanvas.canvasRenderer.SetAlpha(1f);
                     BadDadFadeOut();
                 }
+            }
+        }
+        else
+        {
+            if (t2 < timeFail)
+            {
+                t2 += Time.deltaTime;
+            }
+            else
+            {
+                fail2 = false;
+                t2 = 0;
+                index2 = -1;
             }
         }
     }
